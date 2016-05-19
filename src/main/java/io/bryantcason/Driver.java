@@ -12,19 +12,26 @@ public class Driver {
         System.out.println("How many pets do you have");
         int answer = input.nextInt();
             input.nextLine();
-        String [] types = new String [answer];
-        String [] names = new String [answer];
+        Pet [] pet = new Pet [answer];
 
         for(int i = 0; i < answer; i++) {
 
-            System.out.println("What is the type?");
-            types[i] = input.nextLine();
+            System.out.println("What is the type? Dog, Cat, or Lion");
+            String types = input.nextLine();
             System.out.println("What are the names?");
-            names[i] = input.nextLine();
+            String name = input.nextLine();
+            if(types.equals("Dog")){
+                pet[i] = new Dog(name);
+            } else if(types.equals(name)){
+                pet[i] = new Cat(name);
+            }else{
+                pet[i] = new Lion(name);
+            }
+
         }
 
         for(int i = 0; i < answer; i++){
-            System.out.println(types[i] + " " + names[i]);
+            System.out.println(pet[i].getName() + " says " + pet[i].speak());
         }
 
 
